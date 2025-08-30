@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+
+@theme{
+  --font-para: "Poppins", sans-serif;
+  --font-heading: "Oswald", sans-serif;
+}
