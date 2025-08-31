@@ -4,7 +4,7 @@ import Background from '../../components/Background'
 import GlassyNavbar from '../home/GlassyNavbar'
 
 function Login() {
-    const [isDark, setIsDark] = React.useState(false)
+const [isDark, setIsDark] = React.useState(false)
   return (
 
     <div className={`relative min-h-screen overflow-hidden no-custom-cursor ${isDark ? "bg-black" : "bg-white"}`}>

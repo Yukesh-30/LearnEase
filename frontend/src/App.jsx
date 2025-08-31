@@ -1,6 +1,7 @@
 import React from "react"
 import Home from "./pages/home/Home"
 import Login from "./pages/Auth/Login"
+import Signup from "./pages/Auth/Signup"
 
 
 
@@ -10,6 +11,7 @@ function App() {
     <>
       <Login/>
       {/* <Home/> */}
+      {/* <Signup/> */}
     </>
   )
 }
