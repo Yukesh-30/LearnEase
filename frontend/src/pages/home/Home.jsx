@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react"
 import TrueFocus from "../../components/Truefocus"
 import GlassyNavbar from "./GlassyNavbar"
+import Theme from "../../components/Theme"
+import Background from "../../components/Background"
 
 function Home() {
   const [isDark, setIsDark] = useState(false)
@@ -70,22 +72,7 @@ function Home() {
         <div className="orb orb-2" aria-hidden="true" />
         <div className="orb orb-3" aria-hidden="true" />
       </div>
-      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `
-              radial-gradient(60% 60% at 50% 18%, rgba(255, 107, 0, 0.18), rgba(255,107,0,0) 70%),
-              linear-gradient(to right, ${isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.07)"} 1px, transparent 1px),
-              linear-gradient(to bottom, ${isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.07)"} 1px, transparent 1px)
-            `,
-            backgroundSize: "100% 100%, 24px 24px, 24px 24px",
-            backgroundPosition: "center, 0 0, 0 0",
-            WebkitMaskImage: "radial-gradient(120% 90% at 50% 45%, #000 65%, rgba(0,0,0,0) 100%)",
-            maskImage: "radial-gradient(120% 90% at 50% 45%, #000 65%, rgba(0,0,0,0) 100%)",
-          }}
-        />
-      </div>
+      <Background isDark={isDark} />
       <main className="relative mx-auto mt-10 flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 py-16 text-center">
         
         {/* <h1
@@ -169,28 +156,7 @@ function Home() {
         </div>
         
       </main>
-      <button
-        aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-        onClick={() => setIsDark((v) => !v)}
-        className={`fixed bottom-5 right-5 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 ${
-          isDark
-            ? "border-white/15 bg-white/10 text-white hover:bg-white/15"
-            : "border-black/10 bg-white text-gray-900 hover:bg-gray-50"
-        }`}
-      >
-        {isDark ? (
-          // Sun
-          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v2m0 16v2M2 12H4m16 0h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M5 19l1.5-1.5" />
-          </svg>
-        ) : (
-          // Moon
-          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        )}
-      </button>
+      <Theme isDark={isDark} setIsDark={setIsDark} />
 
       {/* Custom orange cursor */}
       <div ref={cursorRef} className="soft-cursor" />
