@@ -5,6 +5,7 @@ import TrueFocus from "../../components/Truefocus"
 import GlassyNavbar from "./GlassyNavbar"
 import Theme from "../../components/Theme"
 import Background from "../../components/Background"
+import Features from "./Features"
 
 function Home() {
   const [isDark, setIsDark] = useState(false)
@@ -136,7 +137,7 @@ function Home() {
             isDark ? "border-white/10 bg-white/5" : "border-black/10 bg-white/70"
           }`}
         >
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          {/* <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="text-center sm:text-left">
               <p className={`${isDark ? "text-white" : "text-gray-900"} text-base font-semibold`}>
                 Ask AI to summarize today’s session
@@ -151,7 +152,7 @@ function Home() {
             >
               Try Now
             </a>
-          </div>
+          </div> */}
           
         </div>
         
@@ -231,6 +232,7 @@ function Home() {
         /* Use Tailwind's cursor-none by default on desktop to reveal our custom cursor */
         .no-custom-cursor { cursor: none; }
       `}</style>
+      <Features isDark={isDark}/>                                  
     </div>
   )
 }
