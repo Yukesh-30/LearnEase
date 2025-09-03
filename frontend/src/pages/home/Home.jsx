@@ -6,6 +6,7 @@ import GlassyNavbar from "./GlassyNavbar"
 import Theme from "../../components/Theme"
 import Background from "../../components/Background"
 import Features from "./Features"
+import Community from "./Community"
 
 function Home() {
   const [isDark, setIsDark] = useState(false)
@@ -232,7 +233,8 @@ function Home() {
         /* Use Tailwind's cursor-none by default on desktop to reveal our custom cursor */
         .no-custom-cursor { cursor: none; }
       `}</style>
-      <Features isDark={isDark}/>                                  
+      <Features isDark={isDark}/> 
+      <Community isDark={isDark}/>                                 
     </div>
   )
 }
