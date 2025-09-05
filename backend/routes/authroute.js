@@ -2,8 +2,7 @@ import express from 'express'
 
 const route = express.Router()
 
-route.get('/',(req,res)=>{
-    res.send('Auth Route')
-})
+route.post('/login',loginController);
+route.post('/signup',signupController);
 
 export default route

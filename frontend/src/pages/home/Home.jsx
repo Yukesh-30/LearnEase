@@ -7,24 +7,14 @@ import Theme from "../../components/Theme"
 import Background from "../../components/Background"
 import Features from "./Features"
 import Community from "./Community"
+import useTheme from "../../hooks/useTheme"
 
 function Home() {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useTheme();
   const cursorRef = useRef(null)
 
   // Load theme
-  useEffect(() => {
-    const stored = localStorage.getItem("hero-theme")
-    if (stored) setIsDark(stored === "dark")
-    else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setIsDark(true)
-    }
-  }, [])
-
-  // Persist theme
-  useEffect(() => {
-    localStorage.setItem("hero-theme", isDark ? "dark" : "light")
-  }, [isDark])
+  
 
   // Smooth-follow custom cursor
   useEffect(() => {

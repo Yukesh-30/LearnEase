@@ -1,12 +1,21 @@
-import React, { useRef, useState } from "react";
+import React, { use, useRef, useState } from "react";
 import { motion } from "framer-motion";
 // CHANGED: Added icons for the mobile menu
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 // Main Component
 const GlassyNavbar = ({ isDark }) => {
   // CHANGED: Added state for the mobile menu toggle
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
+  const onclickLogin = () => {
+
+    navigate("/login");
+  }
+  const onclickGetStarted = () => {
+    navigate("/signup");
+  }
 
   return (
     <nav className="fixed inset-x-0 top-4 z-50">
@@ -15,11 +24,13 @@ const GlassyNavbar = ({ isDark }) => {
                    px-6 py-2 shadow-lg backdrop-blur-xl ring-1"
       >
         
-        <h1 className={`text-lg font-bold ${
-            isDark ? "text-white" : "text-black"
-          }`}>
-          LearnEase
-        </h1>
+        <a href="/">
+          <h1 className={`text-lg font-bold ${
+              isDark ? "text-white" : "text-black"
+            }`}>
+            LearnEase
+          </h1>
+        </a>
 
         
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -28,10 +39,10 @@ const GlassyNavbar = ({ isDark }) => {
 
         {/* Buttons on the right (hidden on small screens) */}
         <div className="hidden items-center gap-2 lg:flex">
-          <button className={`rounded-full px-4 py-2 text-sm font-semibold font-para cursor-pointer ${isDark ? "text-white" : "text-black"}`}>
+          <button onClick={onclickLogin} className={`rounded-full px-4 py-2 text-sm font-semibold font-para cursor-pointer ${isDark ? "text-white" : "text-black"}`}>
             Login
           </button>
-          <button className={`rounded-full bg-orange-600 px-4 py-2 text-sm font-semibold font-para text-white transition-colors hover:bg-orange-700`}>
+          <button onClick={onclickGetStarted} className={`rounded-full bg-orange-600 px-4 py-2 text-sm font-semibold font-para text-white transition-colors hover:bg-orange-700`}>
             Get Started
           </button>
         </div>
